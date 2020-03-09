@@ -1,0 +1,28 @@
+[submodule "build-tools"]
+	path = build-tools
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/fortran-build-infrastructure.git
+	branch = master
+[submodule "pancake"]
+	path = pancake
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/pancake.git
+	branch = master
+[submodule "parfait"]
+	path = parfait
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/parfait.git
+	branch = master
+[submodule "MessagePasser"]
+	path = MessagePasser
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/message_passer.git
+	branch = master
+[submodule "tracer"]
+	path = tracer
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/tracer.git
+	branch = master
+[submodule "one-ring"]
+	path = one-ring
+	url = git@gitlab.larc.nasa.gov:T-infinity/one-ring.git
+	branch = master
+[submodule "t-infinity"]
+	path = t-infinity
+	url = git@gitlab.larc.nasa.gov:fun3d-developers/t-infinity.git
+	branch = master
