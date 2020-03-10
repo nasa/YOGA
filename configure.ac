@@ -41,7 +41,7 @@ AX_CXX_COMPILE_STDCXX([14],[noext],[mandatory])
 # Use libtool to create shared object
 LT_PREREQ([2.4.2])
 LT_EXTENSION()
-LT_INIT()
+LT_INIT([disable-shared])
 
 # Check for pancake
 AS_VAR_SET_IF([with_pancake],[],[AS_VAR_SET([with_pancake],["subpackage"])])
