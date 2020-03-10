@@ -121,5 +121,5 @@ libyoga_la_SOURCES = \
 
 libyoga_la_LDFLAGS = -module -avoid-version
 libyoga_la_LIBADD = \
-	@top_builddir@/src/runtime/t-infinity/libruntime.la \
-	@top_builddir@/tracer/libtracer.la
+	@t_infinity_ldadd@ \
+	@tracer_ldadd@
