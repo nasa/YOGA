@@ -18,8 +18,6 @@ else
 fi
 set -u
 
-echo $checkout_cmd
-
 ssh -o LogLevel=error fun3d@${build_machine} <<EOF
 whoami && \
 uname -n && \
@@ -31,12 +29,7 @@ cd ${build_directory_root} && \
     git clone ${CI_REPOSITORY_URL} && \
     cd yoga && \
       pwd && \
-echo "YO: ${checkout_cmd}" && \
-git branch && \
-git rev-parse HEAD && \
       ${checkout_cmd} && \
-git branch && \
-git rev-parse HEAD && \
       ./update_submodules.sh && \
       ./ci/k-make-check-qsub.sh ${CHECK_QUEUE}
 EOF
