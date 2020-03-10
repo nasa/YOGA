@@ -66,7 +66,7 @@ aclocal --force -I ${BUILD_TOOLS}/aclocal ${aclocal_flags} \
 && autoconf --force \
 || (echo "Failure" && exit 1)
 
-for i in pancake parfait MessagePasser tracer
+for i in pancake parfait MessagePasser tracer t-infinity
 do
   if test -e $i/bootstrap
   then
