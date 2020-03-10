@@ -4,7 +4,7 @@ set -x # echo commands
 set -e # exit on first error
 set -u # Treat unset variables as error
 
-build_directory_root=/hpnobackup1/fun3d/yoga
+build_directory_root=/hpnobackup1/fun3d/yoga-ci
 
 build_machine=k4
 ssh -o StrictHostKeyChecking=no fun3d@${build_machine} true
