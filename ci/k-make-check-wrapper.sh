@@ -18,6 +18,8 @@ else
 fi
 set -u
 
+echo $checkout_cmd
+
 ssh -o LogLevel=error fun3d@${build_machine} <<EOF
 whoami && \
 uname -n && \
