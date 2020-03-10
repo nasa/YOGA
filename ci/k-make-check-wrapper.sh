@@ -4,7 +4,7 @@ set -x # echo commands
 set -e # exit on first error
 set -u # Treat unset variables as error
 
-build_directory_root=/hpnobackup1/fun3d/yoga
+build_directory_root=/hpnobackup1/fun3d/yoga-ci
 
 build_machine=k4
 ssh -o StrictHostKeyChecking=no fun3d@${build_machine} true
@@ -18,6 +18,8 @@ else
 fi
 set -u
 
+echo $checkout_cmd
+
 ssh -o LogLevel=error fun3d@${build_machine} <<EOF
 whoami && \
 uname -n && \
@@ -29,7 +31,12 @@ cd ${build_directory_root} && \
     git clone ${CI_REPOSITORY_URL} && \
     cd yoga && \
       pwd && \
+echo "YO: ${checkout_cmd}" && \
+git branch && \
+git rev-parse HEAD && \
       ${checkout_cmd} && \
+git branch && \
+git rev-parse HEAD && \
       ./update_submodules.sh && \
       ./ci/k-make-check-qsub.sh ${CHECK_QUEUE}
 EOF
