@@ -1,7 +1,3 @@
-SUBDIRS = tracer t-infinity src
+SUBDIRS = @subdirs@ src
 
-DIST_SUBDIRS = \
-	@subdirs@ \
-	src
-
-EXTRA_DIST =
+EXTRA_DIST = bootstrap
