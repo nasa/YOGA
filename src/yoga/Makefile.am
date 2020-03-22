@@ -27,11 +27,14 @@ libyoga_la_SOURCES = \
 	CellContainmentChecker.h \
 	CellContainmentWrapper.h \
 	CellTesselator.h \
+	ComplexDifferentiator.h \
 	Configuration.cpp \
 	Configuration.h \
 	Connectivity.cpp \
 	Connectivity.h \
+	DdataEigenTypeTraits.h \
 	DensityEstimator.h \
+	DifferentiableDonorElement.h \
 	DistanceFieldAdapter.cpp \
 	DistanceFieldAdapter.h \
 	DistributedLoadBalancer.h \
@@ -109,6 +112,7 @@ libyoga_la_SOURCES = \
 	YogaMesh.cpp \
 	YogaMesh.h \
 	YogaStatuses.h \
+	YogaTypeSupport.h \
 	ZMQMessager.cpp \
 	ZMQMessager.h \
 	ZMQPostMan.cpp \
