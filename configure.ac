@@ -23,7 +23,7 @@ AX_CONFIG_PKG_DIR
 AX_BUILD_TOOLS_LOCATION
 
 AC_CONFIG_MACRO_DIR(config)
-AC_SUBST([ACLOCAL_AMFLAGS], ["-I ./config -I ${BUILD_TOOLS}/aclocal \${ACLOCAL_FLAGS}"])
+AC_SUBST([ACLOCAL_AMFLAGS], ["-I ./config -I ${ax_cv_path_build_tools}/aclocal \${ACLOCAL_FLAGS}"])
 
 AC_CANONICAL_TARGET
 
