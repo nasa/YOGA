@@ -59,6 +59,7 @@ AX_ZMQ
 AC_CONFIG_FILES([Makefile \
 	src/Makefile \
 	src/nanoflann/Makefile \
+	src/ddata/Makefile \
 	src/yoga/Makefile \
 	])
 
