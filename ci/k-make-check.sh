@@ -25,7 +25,6 @@ mkdir -p build
     --with-mpi=/opt/hpe/hpc/mpt/mpt-2.17r14 \
     --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 \
     >> $log 2>&1 \
-    && make -j >> $log 2>&1 \
     && make -j distcheck \
             DISTCHECK_CONFIGURE_FLAGS="--with-mpi=/opt/hpe/hpc/mpt/mpt-2.19 --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 CXXFLAGS=-O0" >> $log 2>&1 \
     ) \

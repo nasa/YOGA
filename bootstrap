@@ -21,25 +21,16 @@ else
   libtoolize="libtoolize"
 fi
 
-# Determine location of fortran-build-infrastructure
+build_tools=${1:-}
 
-if test $# -eq 1
+if test -z $build_tools
 then
-  export BUILD_TOOLS="$1"
-  if ! test -e "${BUILD_TOOLS}/aclocal/sparskit.m4"
-  then
-    echo
-    echo "No build-tools directory was found at $1"
-    echo
-    echo "Failure" && exit 1
-  fi
-else
   root=`dirname $0`
   root=`(cd ${root}; pwd)`
-  if test -e "${root}/build-tools/aclocal/sparskit.m4"
+  build_tools="${root}/build-tools"
+  if test -e "${build_tools}/aclocal/pancake.m4"
   then
-    echo "Configuring build-tools as a subpackage"
-    export BUILD_TOOLS="${root}/build-tools"
+    echo "bootstrapping build-tools..."
     if test -e build-tools/bootstrap
     then
       (cd build-tools && ./bootstrap) || (echo "Failure" && exit 1)
@@ -47,8 +38,7 @@ else
   else
     echo
     echo 'No build-tools directory was found.'
-    echo 'Possibly you need to run:'
-    echo '`git submodule update --init --recursive -- build-tools`'
+    echo 'Run `git submodule update --init --recursive -- build-tools`'
     echo 'to populate locally as a submodule.'
     echo
     echo "Failure" && exit 1
@@ -57,9 +47,8 @@ fi
 
 aclocal_flags="${ACLOCAL_FLAGS:-}"
 
-echo "bootstrapping `basename $PWD`..."
-
-aclocal --force -I ${BUILD_TOOLS}/aclocal ${aclocal_flags} \
+echo "Bootstrapping `basename $PWD`..."
+aclocal --force -I "${build_tools}/aclocal" ${aclocal_flags} \
 && $libtoolize --force --copy \
 && autoheader --force \
 && automake --gnu --add-missing --copy \
@@ -71,7 +60,7 @@ do
   if test -e $i/bootstrap
   then
     echo "bootstrapping ${i}..."
-    ( cd $i && ./bootstrap $BUILD_TOOLS ) || (echo "Failure" && exit 1)
+    ( cd $i && ./bootstrap $build_tools ) || (echo "Failure" && exit 1)
   fi
 done
 
