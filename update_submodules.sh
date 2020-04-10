@@ -16,29 +16,22 @@ done
 
 git submodule update --init --no-fetch -- one-ring
 
+# Sparse Checkout of one-ring
+
 # Find .git directory
-git_dir_path=${PWD}
-until test -d ${git_dir_path}/.git -o "${git_dir_path}" == '/'
-do
-  git_dir_path=`dirname ${git_dir_path}`
-done
+git_dir=`git rev-parse --git-dir`
 
-# Find one-ring module in .git directory
-package=`basename $PWD`
-tinfinity_dir="`find ${git_dir_path}/.git -name $package -print`"
-tinfinity_dir=${tinfinity_dir:-'.git'}
-one_ring_dir="$tinfinity_dir/modules/one-ring"
-
-if test -z "$one_ring_dir"
+# Check for one-ring submodule
+if test -z "${git_dir}/modules/one-ring"
 then
   echo "Failed to find one-ring submodule description!"
   exit 1
 fi
 
-if ! test -f ${one_ring_dir}/info/sparse-checkout
+if ! test -f ${git_dir}/modules/one-ring/info/sparse-checkout
 then
   # This is the subset of files needed to support the distance function
-  cat > ${one_ring_dir}/info/sparse-checkout << EOF
+  cat > ${git_dir}/modules/one-ring/info/sparse-checkout << EOF
 yoga/src
 nanoflann/include/nanoflann.hpp
 ddata/ddata/Ddata.h
