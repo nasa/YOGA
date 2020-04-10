@@ -1,4 +1,14 @@
-SUBDIRS = tracer t-infinity src
+SUBDIRS =
+
+if BUILD_TRACER
+SUBDIRS += tracer
+endif
+
+if BUILD_T_INFINITY
+SUBDIRS += t-infinity
+endif
+
+SUBDIRS += src
 
 DIST_SUBDIRS = @subdirs@ src
 
