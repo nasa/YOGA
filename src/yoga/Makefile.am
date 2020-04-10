@@ -52,11 +52,13 @@ libyoga_la_SOURCES = \
 	GlobalToLocal.h \
 	GridFetcher.cpp \
 	GridFetcher.h \
+	GridRequestFulfiller.h \
 	HoleCutStatPrinter.cpp \
 	HoleCutStatPrinter.h \
 	HoleCuttingTools.cpp \
 	HoleCuttingTools.h \
 	Inspector.h \
+	InspectorPrinter.h \
 	InterpolationTools.cpp \
 	InterpolationTools.h \
 	Interpolator.h \
