@@ -125,7 +125,7 @@ libyoga_la_SOURCES = \
 #	YogaPlugin.cpp
 #	YogaPlugin.h
 
-libyoga_la_LDFLAGS = -module -avoid-version
+libyoga_la_LDFLAGS = -avoid-version
 libyoga_la_LIBADD = \
 	@t_infinity_ldadd@ \
 	@tracer_ldadd@
