@@ -52,7 +52,7 @@ AX_MESSAGE_PASSER
 AX_TRACER
 AX_TINFINITY
 
-AX_ZMQ
+AX_CPPZMQ
 
 # Done with checks
 
@@ -71,7 +71,7 @@ MPISUPPORT=`if test "$with_mpi" != 'no'; then echo yes ; else echo no ; fi`
 
 AC_MSG_RESULT([
 
-Configuration (Distance Library):
+Configuration (YOGA Library):
 
       Source code location: ${srcdir}
       C++ Compiler:         ${CXX}
