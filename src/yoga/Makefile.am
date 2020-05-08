@@ -46,6 +46,7 @@ libyoga_la_SOURCES = \
 	DruyorTypeAssignment.h \
 	ExchangeBasedAssembly.h \
 	FloodFill.h \
+	FragmentBalancer.h \
 	GhostSyncPatternBuilder.cpp \
 	GhostSyncPatternBuilder.h \
 	GlobalIdTranslator.h \
@@ -77,6 +78,7 @@ libyoga_la_SOURCES = \
 	NanoFlannDistanceCalculator.h \
 	OverDecomposer.cpp \
 	OverDecomposer.h \
+	OverlapDetector.h \
 	OverlapMask.cpp \
 	OverlapMask.h \
 	OversetData.h \
