@@ -28,10 +28,8 @@ then
   exit 1
 fi
 
-if ! test -f ${git_dir}/modules/one-ring/info/sparse-checkout
-then
-  # This is the subset of files needed to support the distance function
-  cat > ${git_dir}/modules/one-ring/info/sparse-checkout << EOF
+# This is the subset of files needed to support the distance function
+cat > ${git_dir}/modules/one-ring/info/sparse-checkout << EOF
 yoga/src
 nanoflann/include/nanoflann.hpp
 ddata/ddata/Ddata.h
@@ -46,7 +44,6 @@ ddata/ddata/Ddata.h
 #t-infinity/src/t-infinity-runtime/t-infinity/VectorFieldAdapter.h
 #t-infinity/src/t-infinity-runtime/t-infinity/VizPlugin.h
 EOF
-fi
 
 (cd one-ring
  git config core.sparseCheckout true
