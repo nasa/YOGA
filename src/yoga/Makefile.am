@@ -46,6 +46,7 @@ libyoga_la_SOURCES = \
 	DruyorTypeAssignment.h \
 	ExchangeBasedAssembly.h \
 	FloodFill.h \
+	FragmentBalancer.cpp \
 	FragmentBalancer.h \
 	GhostSyncPatternBuilder.cpp \
 	GhostSyncPatternBuilder.h \
