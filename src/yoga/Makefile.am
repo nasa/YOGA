@@ -51,6 +51,7 @@ libyoga_la_SOURCES = \
 	GhostSyncPatternBuilder.cpp \
 	GhostSyncPatternBuilder.h \
 	GlobalIdTranslator.h \
+	GlobalToLocal.cpp \
 	GlobalToLocal.h \
 	GridFetcher.cpp \
 	GridFetcher.h \
@@ -67,7 +68,6 @@ libyoga_la_SOURCES = \
 	InverseReceptor.h \
 	LagrangeElement.h \
 	LoadBalancer.h \
-	Makefile.am \
 	MeshDensityEstimator.cpp \
 	MeshDensityEstimator.h \
 	MeshInterfaceAdapter.cpp \
@@ -107,12 +107,10 @@ libyoga_la_SOURCES = \
 	VoxelServer.cpp \
 	VoxelServer.h \
 	WeightBasedInterpolator.h \
-	WorkVoxelBuilder.cpp \
-	WorkVoxelBuilder.h \
 	WorkVoxel.cpp \
 	WorkVoxel.h \
-	yoga_c_interface.cpp \
-	yoga_c_interface.h \
+	WorkVoxelBuilder.cpp \
+	WorkVoxelBuilder.h \
 	YogaInstance.h \
 	YogaMesh.cpp \
 	YogaMesh.h \
@@ -123,7 +121,9 @@ libyoga_la_SOURCES = \
 	ZMQPostMan.cpp \
 	ZMQPostMan.h \
 	ZMQServer.hpp \
-	ZMQServerNameGenerator.h
+	ZMQServerNameGenerator.h \
+	yoga_c_interface.cpp \
+	yoga_c_interface.h
 
 #	YogaPlugin.cpp
 #	YogaPlugin.h
