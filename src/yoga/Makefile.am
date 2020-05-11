@@ -51,7 +51,6 @@ libyoga_la_SOURCES = \
 	GhostSyncPatternBuilder.cpp \
 	GhostSyncPatternBuilder.h \
 	GlobalIdTranslator.h \
-	GlobalToLocal.cpp \
 	GlobalToLocal.h \
 	GridFetcher.cpp \
 	GridFetcher.h \
@@ -125,6 +124,7 @@ libyoga_la_SOURCES = \
 	yoga_c_interface.cpp \
 	yoga_c_interface.h
 
+#	GlobalToLocal.cpp
 #	YogaPlugin.cpp
 #	YogaPlugin.h
 
