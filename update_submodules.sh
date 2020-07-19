@@ -32,7 +32,7 @@ fi
 cat > ${git_dir}/modules/one-ring/info/sparse-checkout << EOF
 yoga/src
 nanoflann/include/nanoflann.hpp
-ddata/ddata/*.h
+ddata/ddata/*.h*
 #t-infinity/src/base/t-infinity/*.h
 #t-infinity/src/t-infinity-interfaces/TinfMesh.h
 #t-infinity/src/t-infinity-runtime/t-infinity/PluginLoader.h
@@ -48,4 +48,10 @@ EOF
 (cd one-ring
  git config core.sparseCheckout true
  git checkout --
+)
+(cd src/ddata
+ ./relink-files.sh
+)
+(cd src/yoga
+ ./relink-files.sh
 )
