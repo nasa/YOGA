@@ -1,1 +1,4 @@
-noinst_HEADERS = Ddata.h
+noinst_HEADERS = Ddata.h\
+    Ddata.hpp\
+    ComplexDifferentiation.h\
+    STLFunctions.h

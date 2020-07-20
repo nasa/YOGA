@@ -32,8 +32,13 @@ libyoga_la_SOURCES = \
 	Configuration.h \
 	Connectivity.cpp \
 	Connectivity.h \
-	DdataEigenTypeTraits.h \
 	DensityEstimator.h \
+	DenseMatrix.h \
+	InterpolationTools.hpp \
+	InterpolationToolsDdataHex.cpp \
+	InterpolationToolsDdataPrism.cpp \
+	InterpolationToolsDdataPyramid.cpp \
+	InterpolationToolsDdataTet.cpp \
 	DifferentiableDonorElement.h \
 	DistanceFieldAdapter.cpp \
 	DistanceFieldAdapter.h \
