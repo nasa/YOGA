@@ -32,7 +32,7 @@ uname -mrn
 
 cd \$PBS_O_WORKDIR
 
-./ci/k-make-check.sh > $BUILDLOG 2>&1
+./ci/k-make-check.sh 2>&1 | tee ${BUILDLOG}
 
 EOF
 
