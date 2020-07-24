@@ -16,7 +16,7 @@ set -x # echo
 
 log=`pwd`/../log-make-check.txt
 
-./bootstrap > $log 2>&1
+./bootstrap 2>&1 | tee $log
 mkdir -p build
 ( cd build && \
     export TMPDIR=`pwd` && \
@@ -24,8 +24,8 @@ mkdir -p build
     --prefix=`pwd` \
     --with-mpi=/opt/hpe/hpc/mpt/mpt-2.17r14 \
     --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 \
-    >> $log 2>&1 \
+    2>&1 | tee $log\
     && make -j distcheck \
-            DISTCHECK_CONFIGURE_FLAGS="--with-mpi=/opt/hpe/hpc/mpt/mpt-2.19 --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 CXXFLAGS=-O0" >> $log 2>&1 \
+            DISTCHECK_CONFIGURE_FLAGS="--with-mpi=/opt/hpe/hpc/mpt/mpt-2.19 --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 CXXFLAGS=-O0" 2>&1 | tee $log \
     ) \
     || exit 1
