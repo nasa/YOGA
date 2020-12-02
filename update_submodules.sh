@@ -16,6 +16,8 @@ done
 
 (cd MessagePasser && rm -rf one-ring && ln -sf ../one-ring one-ring)
 (cd parfait && rm -rf one-ring && ln -sf ../one-ring one-ring)
+(cd tracer && rm -rf one-ring && ln -sf ../one-ring one-ring)
+(cd t-infinity && rm -rf one-ring && ln -sf ../one-ring one-ring)
 
 (cd src/ddata
  ./relink-files.sh
