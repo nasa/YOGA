@@ -18,10 +18,6 @@
 	path = tracer
 	url = git@gitlab.larc.nasa.gov:fun3d-developers/tracer.git
 	branch = master
-[submodule "one-ring"]
-	path = one-ring
-	url = git@gitlab.larc.nasa.gov:T-infinity/one-ring.git
-	branch = master
 [submodule "t-infinity"]
 	path = t-infinity
 	url = git@gitlab.larc.nasa.gov:fun3d-developers/t-infinity.git
