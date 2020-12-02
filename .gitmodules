@@ -22,3 +22,6 @@
 	path = t-infinity
 	url = git@gitlab.larc.nasa.gov:fun3d-developers/t-infinity.git
 	branch = master
+[submodule "one-ring"]
+	path = one-ring
+	url = git@gitlab.larc.nasa.gov:xzhang20/one-ring-comp.git
