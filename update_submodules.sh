@@ -14,4 +14,4 @@ do
   fi
 done
 
-
+./relink-files.sh
