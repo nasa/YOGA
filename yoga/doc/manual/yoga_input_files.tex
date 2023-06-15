@@ -1,0 +1,21 @@
+\subsection{Yoga Input Files}\label{s:yoga.input_files}
+Yoga has an optional ASCII input file for setting the order, node counts, and grid-imesh
+values for the component grids within the composite grid file.  
+This file can be used in lieu of setting the values via namelist
+(as described in the\&overset\_data namelist section).
+If Yoga is used to create the composite grid, 
+Yoga will generate this file as a by-product.  
+For example, if Yoga is used to generate a composite grid
+from two component grids, where the first grid has 700 nodes and the second grid
+has 600 nodes, Yoga will generate a file with the default name $imesh.dat$ with
+the following contents:
+
+\begin{verbatim}
+2
+700 1
+600 0
+\end{verbatim}
+
+From this file, FUN3D will determine which nodes in the composite belong to each component
+grid and what $imesh$ value to assign each component.
+

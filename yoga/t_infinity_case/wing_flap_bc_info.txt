@@ -1,0 +1,6 @@
+domain wing
+solid 2
+
+domain flap
+solid 2
+interpolation 1

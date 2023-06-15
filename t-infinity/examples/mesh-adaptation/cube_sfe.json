@@ -1,0 +1,30 @@
+{
+    "refine":{
+        "name":"RefinePlugins",
+        "directory":"../../../install/lib"
+    },
+    "sfe":{
+        "name":"sfe_plugin",
+        "directory":"../../../install/lib",
+        "freestream conditions":{
+            "density": 1.225,
+            "velocity":100.0,
+            "angle of attack":0.0,
+            "temperature":280.0,
+            "adiabatic index":1.4
+        },
+        "physics":"inviscid",
+        "mesh-unit-length":1,
+        "config":{
+            "max iterations":2,
+            "boundary condition map":[
+            {"mesh boundary tag":1, "name":"farfield","boundary condition number":5000 },
+            {"mesh boundary tag":2, "name":"solid_wall_wing_lower", "boundary condition number":3000},
+            {"mesh boundary tag":3, "name":"farfield","boundary condition number":5000 },
+            {"mesh boundary tag":4, "name":"farfield","boundary condition number":5000 },
+            {"mesh boundary tag":5, "name":"farfield","boundary condition number":5000 },
+            {"mesh boundary tag":6, "name":"farfield","boundary condition number":5000 }
+            ]
+        }
+    }
+}

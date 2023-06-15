@@ -1,0 +1,28 @@
+{
+    "preprocessor": "NC_PreProcessor",
+    "visualizer": "ParfaitViz",
+    "fluid solver": "HyperSolve",
+    "mesh filename":"../../../grids/lb8.ugrid/5x5x5_irregular.lb8.ugrid",
+    "HyperSolve":{
+        "states":{
+            "reference":{
+                "densities":[1.0],
+                "speed":1.0,
+                "temperature":1.0
+            }
+        },
+        "nondimensional reference state":"reference",
+        "equation type": "heat equation",
+        "verify with MMS": true,
+        "nonlinear solver settings": {
+            "max time steps": 100,
+            "jacobian free newton krylov": true,
+            "residual stopping tolerance": 1e-12
+        },
+        "boundary conditions":[
+            {"mesh boundary tag":[1,2,3,4,5,6], "type":"constant temperature",
+              "temperature": 500.0
+            }
+        ]
+    }
+}

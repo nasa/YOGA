@@ -1,0 +1,120 @@
+ &sfe
+     disk_io = .true.
+     polynomial_order = 1
+     volume_order = 2
+     volume_order_lhs = 2
+     surface_order = 3
+     big_angle_fix = 0
+     turbinf = 3.0
+     adiabatic = 0
+     use_adiabatic_temp = .true.
+     twall_set = 1.0
+     weakBC    = 2
+     penalty   = 2.7
+     initialize_wall = .true.
+     curve_sqrt = 0
+     sqrt_xintercept = 1.e-10
+     forceFlag = 0
+     iupdate = 1
+     timeAccuracy = 0
+     dynamic_mesh = 0
+     pseudo_time  = 0
+     timeStep = 0.10
+     freeze_at_cflmax = .false.
+     nsubIterations = 6
+     conservativeRamping = 0
+     cflinit = 1.0
+     cflmin = 0.10
+     cflmax = 1000000.0
+     cfl_multiplier = 2.0
+     cfl_star = 0.0
+     nonlinear_indicator = 0.02
+     minimum_omega = 0.001
+     residual_reduction_target = 0.5
+     rtol = 1.e-15
+     relaxFlag = 1
+     freezeTurbulence = .false.
+     sa_scale = 1000.
+     omega = 1.
+     negative_SA = 1
+! Simple switch with shock_ad
+! 1: udot*del(p) (unsmoothed)                          (simplecoef,shock_clip,shock_shift,shock_beta)
+! 2: udot*del(p) (smoothed)                            (simplecoef,shock_clip)
+! 3: dumb dissipation                                  (simpleCoef)
+! 4: residual smoothing                                (simpleCoef)
+! 5: big-angle based                                   (big_angle_coef)
+! 6: Larsson-type for shocks                           (larsson_coef)
+! 7: ramped dumb dissipation                           (simpleCoef)
+! 8: entropy-based detector                            (entropy_start,entropy_end)
+! 9: simplified Larsson-type detecter                  (larsson_coef)
+! 35: dumb dissipation/big angle                       (simpleCoef,big_angle_coef)
+! 36: dumb dissipation/Larsson                         (simpleCoef)
+! 39: dumb dissipation/simplified_Larsson              (simpleCoef)
+! 56: Big-angle/Larsson                                (big_angle_coef)
+! 59: Big-angle/simplified_Larsson                     (big_angle_coef)
+! 45: Residual smoothing/big-angle                     (simpleCoef,big_angle_coef)
+! 456: Residual smoothing/big-angle/Larsson            (simpleCoef,big_angle_coef)
+! 459: Residual smoothing/big-angle/simplified_Larsson (simpleCoef,big_angle_coef)
+! 75: Ramped dumb/big-angle                            (simpleCoef,big_angle_coef)
+! 76: Ramped dumb/Larsson                              (simpleCoef)
+! 79: Ramped dumb/simplified_Larsson                   (simpleCoef)
+! 756: Ramped dumb/big_angle/Larsson                   (simpleCoef,big_angle_coef)
+! 759: Ramped dumb/big_angle/simplified_Larsson        (simpleCoef,big_angle_coef)
+     shock_ad = .false.
+     shock_av = .false.
+     shock_at = .false.
+     shock_clip = 0.005
+     simpleSwitch = 1
+     first_order = .false.
+     simpleCoef   = 1.0
+     tanh_blend = .false.
+     shock_shift = 0.0
+     shock_beta  = 10.0
+     larsson_coef = 1.0
+     entropy_start = 1.e-6
+     entropy_end = 1.e-4
+     realize_increment = 0
+     big_angle_coef = 0.1
+     larsson1 = 1.5
+     larsson2 = 0.05
+     xstart_up = 0.05
+     xend_up   = 0.1
+     xstart_dn = -0.001
+     xend_dn   = 0.0
+     writeShockSensor = .false.
+     writeDiscontinuity_Visc = .false.
+     conservation_tracking = .false.
+     printLineSearch = -2
+     ompThreads = 1
+     ihand = 1
+     no_alp = 3
+     writeMatrix = 0
+     lump_mass  = 0
+     limit6 = .false.
+     fvsTau = .false.
+     ausmTau = .false.
+     diagTau = .false.
+     directTau = .false.
+     krylov_dimension = 300
+     normalize_rows   = .false.
+     solve_blocked = .true.
+     preconditioner = "iluk"
+     nnzFactor = 5
+     threshold = 1.e-4
+     kaczsub = 002
+     dqinit = 0
+     reorder = "k-ordering"
+     reverse = .false.
+     level_of_fill = 2
+     linear_kickout = 1
+     max_matvecs = 300
+     relative = 1.e-8
+     absolute = 1.e-15
+     parilu = .false.
+     parilu_reinit = .true.
+     parilu_ompThreads = 2
+     parilu_maxsweeps = 5
+     parilu_tol = 1.0e-15
+     SPARSKIT2_FGMRES = .false.
+
+ /

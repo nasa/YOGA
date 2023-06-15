@@ -1,0 +1,8 @@
+#/bin/bash
+
+set -e
+
+aclocal && \
+autoheader --force && \
+automake --copy --gnu --add-missing
+autoconf

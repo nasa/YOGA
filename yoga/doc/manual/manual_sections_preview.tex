@@ -1,0 +1,153 @@
+
+
+
+\documentclass[12pt]{article}
+
+\usepackage{graphicx} % images
+\graphicspath{{images/}}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+\usepackage{bold-extra} % bold small caps and tt fonts
+\usepackage{amsmath}    % extended math
+\usepackage{fixltx2e}   % to provide \textsubscript under CentOS 6.4
+\usepackage{varioref}   % variable \refs
+\usepackage{subfig}     % subfloats
+\usepackage{booktabs}   % book-quality tables
+\usepackage{textcomp}   % typeset \texttrademark correctly
+\usepackage{xspace}     % put space after commands intelligently
+\usepackage{upquote}    % to get upright quotation marks in verbatim mode
+
+\usepackage{rotating}   % to rotate boxes without width
+\usepackage{threeparttable} % to allow table footnotes
+
+\usepackage[table]{xcolor} % to allow alternating table row colors
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkred}{rgb}{0.5,0,0}
+
+\usepackage{enumitem}   % extend standard lists
+\setitemize{nolistsep,itemsep=1ex,topsep=1ex}
+
+\usepackage{fancyvrb}  % extended verbatim environments
+\fvset{fontsize=\small,xleftmargin=2ex}
+
+% \usepackage{fancyhdr}  % fancy headers/footers
+% \pagestyle{fancyplain}
+% \fancyhf{} % clear
+% \fancyfoot[C]{\thepage}
+
+\usepackage[obeyspaces,spaces]{url} % verbatim-style commands with line breaks
+\def\UrlBreaks{\do\@\do\\\do\/\do\!\do\|\do\;\do\>\do\]%
+               \do\)\do\,\do\?\do\'\do+\do\=\do\#\do\_}% remove period
+
+\usepackage{overpic} % overlay images with picture environment
+
+\usepackage[hyperfootnotes=false]{hyperref} % hyperlinks (load last)
+\hypersetup{breaklinks,colorlinks,
+            citecolor=darkred,linkcolor=darkblue,urlcolor=darkgreen}
+
+\usepackage{placeins}
+
+\newenvironment{optionlist}%
+{\begin{list}{}%
+             {\setlength{\labelwidth}{0.7em}%
+              \setlength{\labelsep}{0pt}%
+              \setlength{\itemsep}{\bigskipamount}%
+              \renewcommand{\makelabel}{\optionlistlabel}}}%
+{\end{list}}
+\newcommand{\optionlistlabel}[1]%
+{\parbox[b]{0pt}% box gymnastics due to label set in horizontal mode
+  {\makebox[0pt][l]{\normalfont#1}\\[\smallskipamount]\mbox{}}}
+
+\newenvironment{enumlist}%
+{\begin{list}{}%
+             {\setlength{\labelwidth}{\linewidth}%
+              \setlength{\labelsep}{0.5em}%
+              \renewcommand{\makelabel}{\enumlistlabel}}}%
+{\end{list}}
+\newcommand{\enumlistlabel}[1]{\hfil\normalfont#1:}
+
+% a description-style list for typesetting namelist variables
+
+\newenvironment{namelist}%
+{\begin{list}{}%
+             {\setlength{\labelwidth}{0pt}%
+              \setlength{\labelsep}{0pt}%
+              \setlength{\itemsep}{\medskipamount}%
+              \renewcommand{\makelabel}{\namelistlabel}}}%
+{\end{list}}
+\newcommand{\namelistlabel}[1]%
+{\parbox[b]{0pt}% box gymnastics due to label set in horizontal mode
+  {\makebox[0pt][l]{\normalfont\underline{#1}}\\[\medskipamount]\mbox{}}}
+
+\newcommand{\namelistsection}[2]{\newpage\subsubsection{#1}\label{#2}}
+
+\newcommand{\tabularfont}{\footnotesize\sffamily}
+
+% shorthand commands for consistent treatment and line breaks
+
+\DeclareUrlCommand{\path}{\urlstyle{tt}}
+\DeclareUrlCommand{\file}{\urlstyle{tt}}
+\DeclareUrlCommand{\code}{\urlstyle{tt}}
+\DeclareUrlCommand{\cmd}{\urlstyle{tt}}
+\DeclareUrlCommand{\var}{\urlstyle{tt}}
+
+\newcommand{\FieldView}{FieldView\texttrademark\xspace}
+\newcommand{\Tecplot  }{Tecplot\texttrademark\xspace}
+\newcommand{\Sculptor }{Sculptor\texttrademark\xspace}
+\newcommand{\DOT      }{DOT/BIGDOT\texttrademark\xspace}
+\newcommand{\GPUDirect}{GPUDirect\texttrademark\xspace}
+\newcommand{\NPSOL    }{NPSOL\texttrademark\xspace}
+\newcommand{\SNOPT    }{SNOPT\texttrademark\xspace}
+\newcommand{\Intel    }{Intel\textsuperscript{\textregistered}\xspace}
+\newcommand{\NVIDIA   }{NVIDIA\textsuperscript{\textregistered}\xspace}
+\newcommand{\NVLink   }{NVLink\textsuperscript{\textregistered}\xspace}
+\newcommand{\Cavium   }{Cavium\textsuperscript{\textregistered}\xspace}
+\newcommand{\POWER    }{POWER\textsuperscript{\textregistered}\xspace}
+\newcommand{\AMD      }{AMD\textsuperscript{\textregistered}\xspace}
+\newcommand{\Cray     }{Cray\textsuperscript{\textregistered}\xspace}
+\newcommand{\PGI      }{Portland Group\textsuperscript{\textregistered}\xspace}
+\newcommand{\NAG      }{NAG\textsuperscript{\textregistered}\xspace}
+\newcommand{\Lahey    }{Lahey/Fujitsu\textsuperscript{\textregistered}\xspace}
+\newcommand{\Absoft   }{Absoft\textsuperscript{\textregistered}\xspace}
+\newcommand{\IBM      }{IBM\textsuperscript{\textregistered}\xspace}
+\newcommand{\Mac      }{Mac\textsuperscript{\textregistered}\xspace}
+\newcommand{\MacOSX   }{Mac OS X\texttrademark\xspace}
+\newcommand{\Windows  }{Microsoft Windows\texttrademark\xspace}
+
+\newcommand{\FunThreeD}{\textsc{Fun3D}\xspace}
+\newcommand{\FunTwoD}{\textsc{Fun2D}\xspace}
+\newcommand{\nodet}{\textsc{nodet}\xspace}
+\newcommand{\dual}{\textsc{dual}\xspace}
+\newcommand{\adapt}{\textsc{adapt}\xspace}
+\newcommand{\optDriver}{\textsc{opt_driver}\xspace}
+\newcommand{\refine}{\textsc{refine}\xspace}
+\newcommand{\knife }{\textsc{knife}\xspace}
+\newcommand{\VGRID}{\textsc{VGRID}\xspace}
+\newcommand{\sboom}{\textsc{sBOOM}\xspace}
+\newcommand{\funsupport}{\texttt{Fun3D-Support@lists.nasa.gov}\xspace}
+\newcommand{\fluda }{\textsc{FLUDA}\xspace}
+
+\newcommand{\Fig}[1]{Figure \ref{#1}}
+\newcommand{\fig}[1]{Fig.~\ref{#1}}
+\newcommand{\Tab}[1]{Table~\ref{#1}}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+\newcommand{\Sectionref}[1]{Section~\ref{#1}}
+\newcommand{\sectionref}[1]{section~\ref{#1}}
+\newcommand{\nameandsection}[1]{\nameref{#1} (\ref{#1})}
+
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+\input{yoga}
+\input{yoga_installation}
+\input{yoga_input_files}
+
+\bibliography{yoga_references}
+\bibliographystyle{nasa}
+
+\end{document}

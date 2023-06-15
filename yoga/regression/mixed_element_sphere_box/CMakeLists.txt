@@ -1,0 +1,9 @@
+if(NOT CMAKE_BUILD_TYPE MATCHES asan)
+    set(TEST_NAME yoga-regression-mixed-element)
+    file(COPY ${CMAKE_CURRENT_LIST_DIR}/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+    add_test(NAME ${TEST_NAME}
+        COMMAND ${CMAKE_CURRENT_BINARY_DIR}/run_test.sh ${CMAKE_SOURCE_DIR}/grids
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+    set_tests_properties(${TEST_NAME} PROPERTIES ENVIRONMENT "PATH=${CMAKE_INSTALL_PREFIX}/bin:$ENV{PATH}")
+    set_tests_properties(${TEST_NAME} PROPERTIES RUN_SERIAL TRUE)
+endif()

@@ -1,0 +1,7 @@
+include(CMakeFindDependencyMacro)
+find_dependency(MessagePasser)
+find_dependency(t-infinity)
+find_dependency(ddata)
+find_dependency(nanoflann)
+find_dependency(parfait)
+include("${CMAKE_CURRENT_LIST_DIR}/yoga.cmake")

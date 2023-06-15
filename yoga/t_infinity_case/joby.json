@@ -1,0 +1,63 @@
+{
+    "preprocessor":"NC_PreProcessor",
+    "yoga":{
+        "name":"YogaPlugin",
+        "directory":"../../install/lib",
+        "domains":[
+            {"name":"prop-center",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/prop.lb8.ugrid",
+                "estimated load balance":29552563,
+                "solid boundary tags":[2,3,4,5,6,7,8,9,10,11],
+                "interpolation boundary tags":[1,12,13],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"prop-left",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/prop.lb8.ugrid",
+                "estimated load balance":29552563,
+                "solid boundary tags":[2,3,4,5,6,7,8,9,10,11],
+                "interpolation boundary tags":[1,12,13],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"prop-right",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/prop.lb8.ugrid",
+                "estimated load balance":29552563,
+                "solid boundary tags":[2,3,4,5,6,7,8,9,10,11],
+                "interpolation boundary tags":[1,12,13],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"fairing-center",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/fairing.lb8.ugrid",
+                "estimated load balance": 7387502,
+                "solid boundary tags":[2,3,4,5],
+                "interpolation boundary tags":[1,6,7],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"fairing-left",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/fairing.lb8.ugrid",
+                "estimated load balance": 7387502,
+                "solid boundary tags":[2,3,4,5],
+                "interpolation boundary tags":[1,6,7],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"fairing-right",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/fairing.lb8.ugrid",
+                "estimated load balance": 7387502,
+                "solid boundary tags":[2,3,4,5],
+                "estimated load balance": 1,
+                "interpolation boundary tags":[1,6,7],
+                "y-symmetry boundary tags":[]
+            },
+            {"name":"background",
+                "mesh filename":"/hpnobackup1/cdruyor/grids/Joby/fun3d_tet_grids/domain3.lb8.ugrid",
+                "estimated load balance": 1801246,
+                "solid boundary tags":[],
+                "interpolation boundary tags":[7,8,9,10,11,12,13,14,15,16,17,18],
+                "y-symmetry boundary tags":[]
+            }
+        ]
+    },
+    "parfait":{
+        "name":"ParfaitViz",
+        "directory":"../../install/lib"
+    }
+}

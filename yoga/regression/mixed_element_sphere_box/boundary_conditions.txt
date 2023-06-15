@@ -1,0 +1,5 @@
+domain background
+
+domain sphere
+solid 500
+interpolation 600

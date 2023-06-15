@@ -48,19 +48,21 @@ fi
 aclocal_flags="${ACLOCAL_FLAGS:-}"
 
 echo "Bootstrapping `basename $PWD`..."
-aclocal --force -I "${build_tools}/aclocal" ${aclocal_flags} \
-&& $libtoolize --force --copy \
+$libtoolize --force --copy \
+&& aclocal --force -I "${build_tools}/aclocal" ${aclocal_flags} \
 && autoheader --force \
 && automake --gnu --add-missing --copy \
 && autoconf --force \
 || (echo "Failure" && exit 1)
 
-for i in pancake parfait MessagePasser tracer t-infinity
+for i in pancake
 do
   if test -e $i/bootstrap
   then
     echo "bootstrapping ${i}..."
-    ( cd $i && ./bootstrap $build_tools ) || (echo "Failure" && exit 1)
+    ( cd $i && ./bootstrap ${build_tools} ) || (echo "Failure" && exit 1)
+  else
+    echo "***skip bootstrapping ${i}***"
   fi
 done
 
