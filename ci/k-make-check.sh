@@ -7,7 +7,7 @@ set -u # Treat unset variables as error
 . /usr/local/pkgs/modules/init/bash
 
 module purge
-module load intel.2019.4.243
+module load intel/2019.4.243
 module load mpt/2.25
 module load gcc_6.2.0
 
