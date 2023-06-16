@@ -1,0 +1,30 @@
+buildType:
+  default: profiling
+  description: Profiling miniapp with optimizations and debugging symbols
+  choices:
+    debug:
+      short: Debug
+      long: Build for debugging
+      buildType: Debug
+      settings:
+        CMAKE_PREFIX_PATH: /home0/kbthomp1/adept-2.0.8/build
+        Surreal_PREFIX: /home0/kbthomp1/surreal
+        BUILD_DDATA_ADEPT_MINIAPP: ON
+        BUILD_DDATA_SURREAL_MINIAPP: ON
+    profiling:
+      short: Profiling
+      long: Build with Profiling optimizations
+      buildType: Release
+      settings:
+        # CMAKE_CXX_FLAGS: -g -march=native -ffast-math  -qopt-zmm-usage=high
+        CMAKE_CXX_FLAGS: -g -march=native -Ofast
+        CMAKE_PREFIX_PATH: /home0/kbthomp1/spack/opt/spack/linux-centos7-cascadelake/intel-2021.1/trilinos-13.0.1-hcf73jp32p3jv2n46voywbxodfsfnuqw
+        Surreal_PREFIX: /home0/kbthomp1/surreal
+        BUILD_DDATA_SACADO_MINIAPP: ON
+        BUILD_DDATA_SURREAL_MINIAPP: ON
+    vecdebug:
+      short: VectorizeOutput
+      long: Build with Vectorization optimizations + verbose
+      buildType: RelWithDebInfo
+      settings:
+        CMAKE_CXX_FLAGS: -funroll-loops -ftree-vectorize -fopt-info-missed-vec=/home0/kbthomp1/one-ring/ddata/miniapp/optimization_report.txt

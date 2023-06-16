@@ -1,6 +1,6 @@
 #! /bin/bash
 
-subpacks=${1:-"build-tools pancake one-ring parfait MessagePasser tracer t-infinity"}
+subpacks=${1:-"build-tools pancake"}
 
 for i in $subpacks
 do
@@ -13,10 +13,3 @@ do
     (cd $i; ./update_submodules.sh none)
   fi
 done
-
-(cd MessagePasser && rm -rf one-ring && ln -sf ../one-ring one-ring)
-(cd parfait && rm -rf one-ring && ln -sf ../one-ring one-ring)
-(cd tracer && rm -rf one-ring && ln -sf ../one-ring one-ring)
-(cd t-infinity && rm -rf one-ring && ln -sf ../one-ring one-ring)
-
-./relink-files.sh

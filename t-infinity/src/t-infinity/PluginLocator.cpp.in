@@ -1,0 +1,22 @@
+#include <t-infinity/PluginLocator.h>
+#include <dlfcn.h>
+#include <parfait/StringTools.h>
+
+bool isAnInstallDir(std::string path){
+    return Parfait::StringTools::contains(path,"/lib/");
+}
+
+std::string inf::getPathToTinfLib() {
+    Dl_info info;
+    auto symbol_in_this_lib = (void*)&inf::getPluginDir;
+    dladdr(symbol_in_this_lib, &info);
+    std::string this_library(info.dli_fname);
+    return Parfait::StringTools::getPath(this_library);
+}
+
+std::string inf::getPluginDir() {
+    auto path = getPathToTinfLib();
+    if(isAnInstallDir(path))
+        return path;
+    return "@TINF_PLUGIN_DIR@";
+}

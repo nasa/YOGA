@@ -7,7 +7,7 @@ set -x # echo
 uname -n
 
 testname=yoga
-queue=${1:-K2a-fun3d}
+queue=${1:-K3a-fun3d}
 nprocs=12
 walltime=75
 

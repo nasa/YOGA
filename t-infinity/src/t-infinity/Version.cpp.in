@@ -1,0 +1,2 @@
+#include <t-infinity/Version.h>
+std::string inf::version() { return R"(@T_INFINITY_VERSION@)"; }

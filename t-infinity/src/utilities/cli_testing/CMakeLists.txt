@@ -1,0 +1,5 @@
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+add_test(NAME inf-end-to-end-bats-tests COMMAND ./run_test.sh WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+set_tests_properties(inf-end-to-end-bats-tests PROPERTIES RUN_SERIAL TRUE)
+set_tests_properties(inf-end-to-end-bats-tests PROPERTIES ENVIRONMENT "PATH=${CMAKE_INSTALL_PREFIX}/bin:$ENV{PATH};ONE_RING_SOURCE_DIRECTORY=${CMAKE_SOURCE_DIR}")
+test_requires_grids(inf-end-to-end-bats-tests)

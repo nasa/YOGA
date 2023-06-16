@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+set -e
+
+if test X"`uname -s`" = X"Darwin"
+then
+  if test X != X"`which glibtoolize`" -a -e `which glibtoolize`
+  then
+    libtoolize="glibtoolize"
+  else
+    libtoolize="libtoolize"
+  fi
+else
+  libtoolize="libtoolize"
+fi
+
+aclocal -I aclocal && \
+$libtoolize --force --copy && \
+automake --copy --gnu --add-missing
+autoconf

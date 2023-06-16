@@ -1,0 +1,29 @@
+{
+	"components":[
+	{"filename":"/u/cdruyor/bob-grads/small_blades/box.lb8.ugrid"},
+	{"filename":"/u/cdruyor/bob-grads/small_blades/blade.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.8430E+01, 0, 2.6250E+01],
+				    "axis_end":[2.8430E+01, -1.0, 2.6250E+01],
+					"angle":3.0000E+00}
+	},
+	{"filename":"/u/cdruyor/bob-grads/small_blades/blade.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.9679E+01, 0, 0],
+				    "axis_end":[2.9679E+01, 0, 2.6315E+01],
+					"angle":9.0000E+01}
+	},
+	{"filename":"/u/cdruyor/bob-grads/small_blades/blade.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.9679E+01, 0, 0],
+				    "axis_end":[2.9679E+01, 0, 2.6315E+01],
+					"angle":1.8000E+02}
+	},
+	{"filename":"/u/cdruyor/bob-grads/small_blades/blade.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.9679E+01, 0, 0],
+				    "axis_end":[2.9679E+01, 0, 2.6315E+01],
+					"angle":2.7000E+02}
+	}
+	]
+}

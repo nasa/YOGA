@@ -1,18 +1,18 @@
-SUBDIRS =
+SUBDIRS = ddata tracer
 
-if BUILD_TRACER
-SUBDIRS += tracer
+if BUILD_MPI
+SUBDIRS += MessagePasser parfait t-infinity
+if BUILD_PLUGIN
+SUBDIRS += plugin-parfait
+endif
+if BUILD_NANOFLANN
+SUBDIRS += yoga
+endif
 endif
 
-if BUILD_T_INFINITY
-SUBDIRS += t-infinity
-endif
+DIST_SUBDIRS = @subdirs@ \
+	ddata tracer MessagePasser parfait t-infinity plugin-parfait yoga
 
-SUBDIRS += src
-
-DIST_SUBDIRS = @subdirs@ src
-
-#ACLOCAL_AMFLAGS = -I config -I $(build_tools)/aclocal @ACLOCAL_AMFLAGS@
 ACLOCAL_AMFLAGS = -I config @ACLOCAL_AMFLAGS@
 
 EXTRA_DIST = bootstrap

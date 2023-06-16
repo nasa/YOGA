@@ -1,0 +1,33 @@
+{
+    "fluid solver": "HyperSolve",
+    "mesh filename": "../../../grids/meshb/om6-tiny-01.meshb",
+    "project name": "om6-tiny",
+    "adaptation options": {
+        "geometry_meshb": "../../../grids/meshb/om6-tiny-01.meshb",
+        "segments_per_radian": 1.0
+    },
+    "HyperSolve":{
+        "states":{
+            "farfield":{
+                "densities": [1.225],
+                "speed":285.43,
+                "angle of attack":3.06,
+                "temperature":280.0
+            }
+        },
+        "nondimensional reference state":"farfield",
+        "equation type": "euler",
+        "discretization settings": {
+            "slope limiter": "first order"
+        },
+        "nonlinear solver settings": {
+            "max time steps": 50,
+            "starting cfl":1.0,
+            "cfl bounds": [0.001, 1e9]
+        },
+        "boundary conditions":[
+            {"mesh boundary tag":1, "type":"dirichlet", "state":"farfield"},
+            {"mesh boundary tag":[2,3,4,5,6,7,8,9,10,11,12], "type":"tangency"}
+        ]
+    }
+}

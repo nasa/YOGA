@@ -1,0 +1,6 @@
+{
+    "preprocessor": "NC_PreProcessor",
+    "visualizer": "ParfaitViz",
+    "mesh filename 2":"../../../grids/lb8.ugrid/sphere_in_sphere.ugrid",
+    "mesh filename":"../../../grids/lb8.ugrid/om6-small-euler.lb8.ugrid"
+}

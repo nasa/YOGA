@@ -1,0 +1,115 @@
+yoga II
+
+Perform type assignment first, spatially, in pure Cartesian space/octree.
+    - put surfaces in distance tree
+    - low res cartbock image of each component
+    - calc distance to each point in image
+    - mark image cells as In if all their nodes are closer to their component
+        o this basically fills the majority of space on each grid
+    - mark image cells that contain mandatory receptors (may have to refine)
+    - try to mark image cells as In if they overlap with Mandatory receptors in another image
+    - refine until neighbors of In cells are completely contained in In cells of another image
+    - mark fringe regions on component images
+    - put Mesh cells from fringe regions into ADT
+    - identify receptor Mesh nodes & send to ranks with overlapping Image cells
+
+This approach would provide guaranteed spatial overlap.
+Since receptors are determined up-front, many fewer donor searches are required.
+
+Would probably still use node counts on each image to help with refinement,
+possibly with a much finer block.  The refinement would be the trickiest part
+for this method.  Particularly in situations where bodies are very close (like
+slats/flaps).  If this problem could be solved quickly and robustly, this
+method could be significantly faster and more scalable than the current one.
+
+=========================================================================================
+
+yoga III
+
+agglomerate nodes as done in fragments
+global rcb on agglomerated nodes, and load balance fragments
+just send query points where they need to go instead of
+
+=========================================================================================
+
+Planned papers
+
+Aviation 2020: Fun3D+Yoga scaling for rotorcraft problems
+    cases to run
+        - hart 7m
+        - uh60 18m
+        - hart 129m
+        - something even larger
+    content to write
+        - fully describe yoga server-client model
+        - describe yoga global comm model
+
+SciTech 2021: Fun3D+Yoga+Adjoint
+    code to write
+        - enable weight calculation to be templated on type
+        - incorporate SFE differentiable type into weight calc
+        - expose sensitivities to api (c++ & c)
+        - refactor Fun3D to access sensitivities
+    cases to run
+        - one of Li's cases, & compare w/ Suggar results?
+
+TBD: Solution based overset adaptation (Fun3D+Yoga+Refine)
+    basis: steady case
+        - generate solution based metric field on each component
+        - modify metric to account for node statuses
+        - rerun, repeat
+    basis: unsteady
+        - generate time averaged metric for entire simulation
+        - modify metric to incorporate overset constraints
+        - manage reference frames for refine/fun3d
+        - show improved solution accuracy or cost for rotorcraft simulation
+        - apply scaled metric from one rotorcraft problem to another
+        - show improved results and/or cost for projected problem
+
+TBD: Machine learning model for non-linear solver convergence
+    basis:
+        - train a model to control CFL in Fun3D to accelerate
+          convergence on certain types of problems
+        - demonstrate improvement over manual CFD ramping via namelist
+        - compare with canonical controllers
+
+TBD: Overset mesh discretization matching for prescribed motion
+    basis
+        - Given initial overset system and prescribed motion,
+          determine regions that need refinement to reduce
+          disparity in grid scale for simulation
+        - generate modified metric via Yoga, then adapt with refine
+        - adapt via edge primitive operations with Yoga directly
+        - compare methods
+
+TBD: CFD mesh preprocessing via gpu
+    basis
+        - partition large mesh systems for Fun3D-cuda
+        - compare with using cpu for preprocessing, then gpu for solve
+    code to write
+        - port parallel mesh read/distribution to gpu
+        - port RCB to gpu
+        - port shuffle book-keeping to gpu
+
+TBD: GPU acceleration in Yoga
+    code to write
+        - leverage parfait gpu implementation of RCB
+        - gpu based AABB containment algo to replace ADT on cpu
+        - port distance calculation to gpu
+        - port n2n connectivity to gpu
+        - port type assignment to gpu
+        - port weight calculation to gpu
+
+TBD: Higher dimensional recursive bisection
+    basis
+        - if we can use RCB in 6D, like the ADT algo,
+          then we would always end up with a balanced tree
+        - either use RCB tree directly, or use to control
+          order of insertion into ADT to achieve balance
+        - if hierarchical, could tune bin sizes at each depth
+          to find optimal performance
+        - could also lead to better suit algo for gpu than ADT
+    method
+        - project to 6D as in ADT
+        - perform RCB in 6D
+        - detect AABB overlap via lookup in RCB tree

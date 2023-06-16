@@ -1,0 +1,37 @@
+{
+    "refine":{
+        "name":"RefinePlugins",
+        "directory":"../../../install/plugin-refine/lib"
+    },
+    "HyperSolve":{
+        "name":"HyperSolve", 
+        "directory":"../../../install/hypersolve/lib",
+        "states":{
+            "farfield":{
+                "densities":[1.225],
+                "speed":285.85,
+                "angle of attack":3.06,
+                "temperature":288.15
+            }
+        },
+        "nondimensional reference state":"farfield",
+        "discretization settings": {
+            "flux limiter": "no limiter"
+        },
+        "nonlinear solver settings": {
+            "max time steps": 0,
+            "starting cfl":1.0,
+            "cfl bounds": [0.001, 1e6]
+        },
+        "boundary conditions":[
+            {"mesh boundary tag":1, "type":"riemann",
+                "densities": [1.225], 
+                "velocity": [285.442429673, 0.0, 15.2591560175],
+                "pressure": 101325.044389},
+                {"mesh boundary tag":2, "type":"symmetry"},
+                {"mesh boundary tag":[3,4,5,6,7,8,9,10,11,12], "type":"no slip",
+                    "wall temperature": 288.15
+                }
+        ]
+    }
+}

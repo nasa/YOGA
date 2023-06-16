@@ -1,0 +1,54 @@
+{
+    "freestream conditions":{
+        "density":1.225,
+        "velocity":285.43,
+        "angle of attack":3.06,
+        "temperature":280.0,
+        "gas constant":8.3144598,
+        "adiabatic index":1.4
+    },
+    "framework controls":{
+        "iterations":1
+    },
+    "mesh-adaptation plugin":{
+        "name":"RefinePlugins",
+        "directory":"../../../install/lib"
+    },
+    "preprocessor plugin":{
+        "name":"NC_PreProcessor",
+        "directory":"../../../install/lib"
+    },
+    "visualization plugin":{
+        "name":"ParfaitViz",
+        "directory":"../../../install/lib"
+    },
+    "domains":[ 
+    {
+        "name":"crm", 
+        "mesh":"../../../grids/lb8.ugrid/crm_coarse.lb8.ugrid",
+        "estimated load balance":1,
+        "mesh-unit-length":1,
+        "read from snap":"crm.snap",
+        "solid boundary tags":[3],
+        "interpolation boundary tags":[],
+        "y-symmetry boundary tags":[2],
+        "measurements":[
+        {"type":"full-volume", "fields":["density"]}
+        ],
+        "solver":{
+            "plugin":{
+                "name":"sfe_plugin", 
+                "directory":"../../../install/lib"
+            },
+            "specific solver settings":{
+                "max iterations":1,
+                "boundary condition map":[
+                {"mesh boundary tag":1, "name":"farfield","boundary condition number":5050 },
+                {"mesh boundary tag":2, "name":"symmetry","boundary condition number":3000 },
+                {"mesh boundary tag":3, "name":"wing" ,   "boundary condition number":3000 }
+                ]
+            }
+        }
+    }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "surface forces": {
+        "integrated directed area (m^2)": [
+            -5.49215832127443e-14,
+            -0.0682253020591044,
+            3.8401880510087e-13
+        ],
+        "inviscid": {
+            "x direction (N)": 347.253639363012,
+            "y direction (N)": -6396.42391972533,
+            "z direction (N)": 13004.6043506069
+        },
+        "mesh boundary tags": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+        ],
+        "viscous": {
+            "x direction (N)": 5.3195465435898,
+            "y direction (N)": 0.0203238771493813,
+            "z direction (N)": 0.317997136821875
+        }
+    }
+}

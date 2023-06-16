@@ -1,0 +1,26 @@
+{
+	"components":[
+	{"filename":"/u/cdruyor/hart_case/07M_hart_ii_mixed_element/fuselage.lb8.ugrid"},
+	{"filename":"/u/cdruyor/hart_case/07M_hart_ii_mixed_element/rotor.lb8.ugrid",
+		"translation":[7.6520E-01, 0.0000E+00, 7.9600E-01]
+	},
+	{"filename":"/u/cdruyor/hart_case/07M_hart_ii_mixed_element/rotor.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.8430E+01, 0, 0],
+				    "axis_end":[2.8430E+01, 0, 2.6250E+01],
+					"angle":9.0000E+01}
+	},
+	{"filename":"/u/cdruyor/hart_case/07M_hart_ii_mixed_element/rotor.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.8430E+01, 0, 0],
+				    "axis_end":[2.8430E+01, 0, 2.6250E+01],
+					"angle":1.8000E+02}
+	},
+	{"filename":"/u/cdruyor/hart_case/07M_hart_ii_mixed_element/rotor.lb8.ugrid",
+		"translation":[2.8430E+01, 0.0000E+00, 2.6250E+01],
+		"rotation":{"axis_begin":[2.8430E+01, 0, 0],
+				    "axis_end":[2.8430E+01, 0, 2.6250E+01],
+					"angle":2.7000E+02}
+	}
+	]
+}

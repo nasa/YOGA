@@ -7,10 +7,9 @@ set -u # Treat unset variables as error
 . /usr/local/pkgs/modules/init/bash
 
 module purge
-module load intel_2018.3.222
-module load mpt-2.17r14
+module load intel/2019.4.243
+module load mpt/2.25
 module load gcc_6.2.0
-module load zeromq_4.2.2
 
 set -x # echo
 
@@ -22,10 +21,10 @@ mkdir -p build
     export TMPDIR=`pwd` && \
     ../configure \
     --prefix=`pwd` \
-    --with-mpi=/opt/hpe/hpc/mpt/mpt-2.17r14 \
-    --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 \
+    --with-mpi=/opt/hpe/hpc/mpt/mpt-2.25 \
+    --with-nanoflann=/ump/fldmd/home/casb-shared/fun3d/fun3d_users/modules/nanoflann/1.3.0 \
     2>&1 | tee $log\
     && make -j distcheck \
-            DISTCHECK_CONFIGURE_FLAGS="--with-mpi=/opt/hpe/hpc/mpt/mpt-2.19 --with-zmq=/usr/local/pkgs-modules/zeromq_4.2.2 CXXFLAGS=-O0" 2>&1 | tee $log \
+            DISTCHECK_CONFIGURE_FLAGS="--with-mpi=/opt/hpe/hpc/mpt/mpt-2.25 --with-nanoflann=/ump/fldmd/home/casb-shared/fun3d/fun3d_users/modules/nanoflann/1.3.0 CXXFLAGS=-O0" 2>&1 | tee $log \
     ) \
     || exit 1

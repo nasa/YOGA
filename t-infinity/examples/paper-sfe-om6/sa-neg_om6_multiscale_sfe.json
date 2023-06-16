@@ -1,0 +1,41 @@
+{
+    "refine":{
+        "name":"RefinePlugins",
+        "directory":"../../../install/lib"
+    },
+    "visualization plugin":{
+        "name":"ParfaitViz",
+        "directory":"../../../install/lib"
+    },
+    "sfe":{
+        "name":"sfe_plugin", 
+        "directory":"../../../install/lib",
+        "mesh-unit-length":1,
+        "physics":"sa-neg",
+        "freestream conditions":{
+            "density":1.225,
+            "velocity":285.85,
+            "angle of attack":3.06,
+            "temperature":288.15,
+            "reynolds number":14.6e6,
+            "adiabatic index":1.4
+        },
+        "config":{
+            "max iterations":400,
+            "boundary condition map":[
+            {"mesh boundary tag":1, "name":"farfield","boundary condition number":5000 },
+            {"mesh boundary tag":2, "name":"symmetry","boundary condition number":6662 },
+            {"mesh boundary tag": 3, "name":"solid_wall_wing_lower", "boundary condition number":4000},
+            {"mesh boundary tag": 4, "name":"solid_wall_wing_upper", "boundary condition number":4000},
+            {"mesh boundary tag": 5, "name":"solid_wall_te_upper", "boundary condition number":4000},
+            {"mesh boundary tag": 6, "name":"solid_wall_te_lower", "boundary condition number":4000},
+            {"mesh boundary tag": 7, "name":"solid_wall_tip_lower", "boundary condition number":4000},
+            {"mesh boundary tag": 8, "name":"solid_wall_tip_fore_lower", "boundary condition number":4000},
+            {"mesh boundary tag": 9, "name":"solid_wall_tip_fore_upper", "boundary condition number":4000},
+            {"mesh boundary tag":10, "name":"solid_wall_tip_upper", "boundary condition number":4000},
+            {"mesh boundary tag":11, "name":"solid_wall_tip_aft_upper", "boundary condition number":4000},
+            {"mesh boundary tag":12, "name":"solid_wall_tip_aft_lower", "boundary condition number":4000}
+            ]
+        }
+    }
+}

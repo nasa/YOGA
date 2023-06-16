@@ -1,0 +1,61 @@
+{
+    "fluid solver": "HyperSolve",
+    "visualizer": "ParfaitViz",
+    "adaptation options": {
+        "sweeps": 2
+    },
+    "domains":[
+        {
+            "name":"wing",
+            "mesh filename":"../../../grids/lb8.ugrid/wing.lb8.ugrid",
+            "estimated load balance":1,
+            "HyperSolve":{
+                "domain name":"wing",
+                "states":{
+                    "farfield":{
+                        "densities": [1.225],
+                        "speed":285.43,
+                        "angle of attack":3.06,
+                        "temperature":280.0
+                    }
+                },
+                "nondimensional reference state":"farfield",
+                "equation type": "euler",
+                "nonlinear solver settings": {
+                    "max time steps": 1,
+                    "cfl bounds": [0.80, 100]
+                },
+                "boundary conditions":[
+                    {"mesh boundary tag":[1,2,3,4,5], "type":"dirichlet","state":"farfield"},
+                    {"mesh boundary tag":[6,7,8,9,10,11,12,13,14,15], "type":"tangency"}
+                ]
+            }
+        },
+        {
+            "name":"store",
+            "mesh filename":"../../../grids/lb8.ugrid/store.lb8.ugrid",
+            "estimated load balance":1,
+            "HyperSolve":{
+                "domain name":"store",
+                "states":{
+                    "farfield":{
+                        "densities": [1.225],
+                        "speed":285.43,
+                        "angle of attack":3.06,
+                        "temperature":280.0
+                    }
+                },
+                "nondimensional reference state":"farfield",
+                "equation type": "euler",
+                "nonlinear solver settings": {
+                    "max time steps": 1,
+                    "cfl bounds": [0.80, 100]
+                },
+                "boundary conditions":[
+                    {"mesh boundary tag":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44],"type":"tangency"},
+                    {"mesh boundary tag":[45,46,47,48,49,50],"type":"overset interpolation"}
+                ]
+            }
+        }
+    ]
+}
