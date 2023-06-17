@@ -9,7 +9,7 @@ set -u # Treat unset variables as error
 module purge
 module load intel/2019.4.243
 module load mpt/2.25
-module load gcc_6.2.0
+module load gcc/8.2.0
 
 set -x # echo
 
