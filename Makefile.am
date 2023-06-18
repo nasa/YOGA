@@ -10,7 +10,7 @@ SUBDIRS += yoga
 endif
 endif
 
-DIST_SUBDIRS = @subdirs@ \
+DIST_SUBDIRS = ${subdirs} \
 	ddata tracer MessagePasser parfait t-infinity plugin-parfait yoga
 
 ACLOCAL_AMFLAGS = -I config @ACLOCAL_AMFLAGS@
