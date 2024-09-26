@@ -1,8 +1,0 @@
-[submodule "build-tools"]
-	path = build-tools
-	url = git@gitlab.larc.nasa.gov:fun3d-developers/fortran-build-infrastructure.git
-	branch = master
-[submodule "pancake"]
-	path = pancake
-	url = git@gitlab.larc.nasa.gov:fun3d-developers/pancake.git
-	branch = master

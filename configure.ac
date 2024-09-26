@@ -14,7 +14,6 @@ AC_CONFIG_MACRO_DIR([config])
 AM_INIT_AUTOMAKE([foreign tar-pax])
 
 AX_CXX_COMPILE_STDCXX([14], [noext], [mandatory])
-AC_HEADER_STDC
 AM_PROG_CC_C_O
 AC_PROG_CXX(icpc armclang++ g++)
 AX_TUNE_CXX
