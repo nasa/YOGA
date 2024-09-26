@@ -21,49 +21,14 @@ else
   libtoolize="libtoolize"
 fi
 
-build_tools=${1:-}
-
-if test -z $build_tools
-then
-  root=`dirname $0`
-  root=`(cd ${root}; pwd)`
-  build_tools="${root}/build-tools"
-  if test -e "${build_tools}/aclocal/pancake.m4"
-  then
-    echo "bootstrapping build-tools..."
-    if test -e build-tools/bootstrap
-    then
-      (cd build-tools && ./bootstrap) || (echo "Failure" && exit 1)
-    fi
-  else
-    echo
-    echo 'No build-tools directory was found.'
-    echo 'Run `git submodule update --init --recursive -- build-tools`'
-    echo 'to populate locally as a submodule.'
-    echo
-    echo "Failure" && exit 1
-  fi
-fi
-
 aclocal_flags="${ACLOCAL_FLAGS:-}"
 
 echo "Bootstrapping `basename $PWD`..."
 $libtoolize --force --copy \
-&& aclocal --force -I "${build_tools}/aclocal" ${aclocal_flags} \
+&& aclocal --force -I config ${aclocal_flags} \
 && autoheader --force \
 && automake --gnu --add-missing --copy \
 && autoconf --force \
 || (echo "Failure" && exit 1)
-
-for i in pancake
-do
-  if test -e $i/bootstrap
-  then
-    echo "bootstrapping ${i}..."
-    ( cd $i && ./bootstrap ${build_tools} ) || (echo "Failure" && exit 1)
-  else
-    echo "***skip bootstrapping ${i}***"
-  fi
-done
 
 echo "Success"
