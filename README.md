@@ -2,7 +2,7 @@
 
 The YOGA Overset Grid Assembler is no longer developed.  Source code is provided "as-is" and no support is available.
 
-YOGA has a required dependency on Nanoflan version 1.3.0.
+YOGA has a required dependency on [nanoflann version 1.3.0](https://github.com/jlblancoc/nanoflann/tree/v1.3.0) which must be provided when configuring YOGA.
 
 To configure and build with GNU Autotools, you will have to first bootstrap the raw source after cloning the repository.  This is typically only required after the initial clone.
 
