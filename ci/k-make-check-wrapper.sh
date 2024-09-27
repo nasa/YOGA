@@ -30,7 +30,6 @@ cd ${build_directory_root} && \
     cd yoga && \
       pwd && \
       ${checkout_cmd} && \
-      ./update_submodules.sh && \
       ./ci/k-make-check-qsub.sh ${CHECK_QUEUE}
 EOF
 
